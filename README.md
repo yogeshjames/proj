@@ -59,4 +59,9 @@ Maximum number of audio samples per input sequence
 Usage
 
 Run the training and plotting in a single command. Example:    
-python trials.py --noisy_dir MS-SNSD/NoisySpeech_training --clean_dir MS-SNSD/CleanSpeech_training --epochs 20 --batch_size 8 --lr 1e-3 --sr 16000 --max_len 16000
+python k.py --noisy_dir MS-SNSD/NoisySpeech_training --clean_dir MS-SNSD/CleanSpeech_training --epochs 20 --batch_size 8 --lr 1e-3 --sr 16000 --max_len 16000
+
+
+after this run 
+python l.py --metrics_file metrics.npz --model_path rnn_filter.pth --noisy_dir MS-SNSD/NoisySpeech_training --clean_dir MS-SNSD/CleanSpeech_training --sr 16000 --max_len 16000
+ to get the grplagh outputs 
