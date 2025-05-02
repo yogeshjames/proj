@@ -152,5 +152,19 @@ def main():
     plt.tight_layout()
     plt.show()
 
+    # Plot waveform comparison (amplitude vs. time)
+    t = np.arange(args.max_len) / args.sr
+    plt.figure(figsize=(10,5))
+    plt.plot(t, clean_np, linestyle='--', label='Clean')
+    plt.plot(t, noisy_np, alpha=0.3, label='Noisy')
+    plt.plot(t, fir_out, label=f'FIR (SNR {snr_fir:.2f} dB)')
+    plt.plot(t, rnn_out, linestyle=':', label=f'RNN (SNR {snr_rnn:.2f} dB)')
+    plt.xlabel('Time (s)')
+    plt.ylabel('Amplitude')
+    plt.title('Waveform Comparison: Clean vs Noisy vs FIR vs RNN')
+    plt.legend()
+    plt.grid(True)
+    plt.show()
+    
 if __name__ == "__main__":
     main()
